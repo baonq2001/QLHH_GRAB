@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QLHH_GRABModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CHITIETDATHANG">
+          <Key>
+            <PropertyRef Name="SOHOADON" />
+            <PropertyRef Name="MAHANG" />
+          </Key>
+          <Property Name="SOHOADON" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MAHANG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="GIABAN" Type="money" Nullable="false" />
+          <Property Name="SOLUONG" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="MUCGIAMGIA" Type="decimal" Precision="4" Scale="2" />
+        </EntityType>
+        <EntityType Name="DONDATHANG">
+          <Key>
+            <PropertyRef Name="SOHOADON" />
+          </Key>
+          <Property Name="SOHOADON" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MAKHACHHANG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MANHANVIEN" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="NGAYDATHANG" Type="datetime" />
+          <Property Name="NGAYGIAOHANG" Type="datetime" />
+          <Property Name="NGAYCHUYENHANG" Type="datetime" />
+          <Property Name="NOIGIAOHANG" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="MAKHACHHANG" />
+          </Key>
+          <Property Name="MAKHACHHANG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENKH" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TENGIAODICH" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DIACHI" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DIENTHOAI" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOAIHANG">
+          <Key>
+            <PropertyRef Name="MALOAIHANG" />
+          </Key>
+          <Property Name="MALOAIHANG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENLOAIHANG" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MATHANG">
+          <Key>
+            <PropertyRef Name="MAHANG" />
+          </Key>
+          <Property Name="MAHANG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENHANG" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MACONGTY" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MALOAIHANG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SOLUONG" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DONVITINH" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="GIAHANG" Type="money" />
+        </EntityType>
+        <EntityType Name="NHACUNGCAP">
+          <Key>
+            <PropertyRef Name="MACONGTY" />
+          </Key>
+          <Property Name="MACONGTY" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TENCONGTY" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TENGIAODICH" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DIACHI" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DIENTHOAI" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="MANHANVIEN" />
+          </Key>
+          <Property Name="MANHANVIEN" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="HO" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="TEN" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NGAYSINH" Type="date" Nullable="false" />
+          <Property Name="NGAYLAMVIEC" Type="date" Nullable="false" />
+          <Property Name="DIACHI" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DIENTHOAI" Type="varchar" MaxLength="20" />
+          <Property Name="LUONGCOBAN" Type="money" />
+          <Property Name="PHUCAP" Type="money" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CHITIETDA__MAHAN__34C8D9D1">
+          <End Role="MATHANG" Type="Self.MATHANG" Multiplicity="1" />
+          <End Role="CHITIETDATHANG" Type="Self.CHITIETDATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATHANG">
+              <PropertyRef Name="MAHANG" />
+            </Principal>
+            <Dependent Role="CHITIETDATHANG">
+              <PropertyRef Name="MAHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHITIETDA__SOHOA__33D4B598">
+          <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="1" />
+          <End Role="CHITIETDATHANG" Type="Self.CHITIETDATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONDATHANG">
+              <PropertyRef Name="SOHOADON" />
+            </Principal>
+            <Dependent Role="CHITIETDATHANG">
+              <PropertyRef Name="SOHOADON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONDATHAN__MAKHA__300424B4">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MAKHACHHANG" />
+            </Principal>
+            <Dependent Role="DONDATHANG">
+              <PropertyRef Name="MAKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONDATHAN__MANHA__30F848ED">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="MANHANVIEN" />
+            </Principal>
+            <Dependent Role="DONDATHANG">
+              <PropertyRef Name="MANHANVIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MATHANG__MACONGT__2C3393D0">
+          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
+          <End Role="MATHANG" Type="Self.MATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHACUNGCAP">
+              <PropertyRef Name="MACONGTY" />
+            </Principal>
+            <Dependent Role="MATHANG">
+              <PropertyRef Name="MACONGTY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MATHANG__MALOAIH__2D27B809">
+          <End Role="LOAIHANG" Type="Self.LOAIHANG" Multiplicity="1" />
+          <End Role="MATHANG" Type="Self.MATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIHANG">
+              <PropertyRef Name="MALOAIHANG" />
+            </Principal>
+            <Dependent Role="MATHANG">
+              <PropertyRef Name="MALOAIHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="QLHH_GRABModelStoreContainer">
+          <EntitySet Name="CHITIETDATHANG" EntityType="Self.CHITIETDATHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DONDATHANG" EntityType="Self.DONDATHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAIHANG" EntityType="Self.LOAIHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MATHANG" EntityType="Self.MATHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHACUNGCAP" EntityType="Self.NHACUNGCAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CHITIETDA__MAHAN__34C8D9D1" Association="Self.FK__CHITIETDA__MAHAN__34C8D9D1">
+            <End Role="MATHANG" EntitySet="MATHANG" />
+            <End Role="CHITIETDATHANG" EntitySet="CHITIETDATHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHITIETDA__SOHOA__33D4B598" Association="Self.FK__CHITIETDA__SOHOA__33D4B598">
+            <End Role="DONDATHANG" EntitySet="DONDATHANG" />
+            <End Role="CHITIETDATHANG" EntitySet="CHITIETDATHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONDATHAN__MAKHA__300424B4" Association="Self.FK__DONDATHAN__MAKHA__300424B4">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="DONDATHANG" EntitySet="DONDATHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONDATHAN__MANHA__30F848ED" Association="Self.FK__DONDATHAN__MANHA__30F848ED">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="DONDATHANG" EntitySet="DONDATHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MATHANG__MACONGT__2C3393D0" Association="Self.FK__MATHANG__MACONGT__2C3393D0">
+            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
+            <End Role="MATHANG" EntitySet="MATHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MATHANG__MALOAIH__2D27B809" Association="Self.FK__MATHANG__MALOAIH__2D27B809">
+            <End Role="LOAIHANG" EntitySet="LOAIHANG" />
+            <End Role="MATHANG" EntitySet="MATHANG" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLHH_GRABModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CHITIETDATHANG">
+          <Key>
+            <PropertyRef Name="SOHOADON" />
+            <PropertyRef Name="MAHANG" />
+          </Key>
+          <Property Name="SOHOADON" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAHANG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GIABAN" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SOLUONG" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="MUCGIAMGIA" Type="Decimal" Precision="4" Scale="2" />
+          <NavigationProperty Name="MATHANG" Relationship="Self.FK__CHITIETDA__MAHAN__34C8D9D1" FromRole="CHITIETDATHANG" ToRole="MATHANG" />
+          <NavigationProperty Name="DONDATHANG" Relationship="Self.FK__CHITIETDA__SOHOA__33D4B598" FromRole="CHITIETDATHANG" ToRole="DONDATHANG" />
+        </EntityType>
+        <EntityType Name="DONDATHANG">
+          <Key>
+            <PropertyRef Name="SOHOADON" />
+          </Key>
+          <Property Name="SOHOADON" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAKHACHHANG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MANHANVIEN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NGAYDATHANG" Type="DateTime" Precision="3" />
+          <Property Name="NGAYGIAOHANG" Type="DateTime" Precision="3" />
+          <Property Name="NGAYCHUYENHANG" Type="DateTime" Precision="3" />
+          <Property Name="NOIGIAOHANG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CHITIETDATHANGs" Relationship="Self.FK__CHITIETDA__SOHOA__33D4B598" FromRole="DONDATHANG" ToRole="CHITIETDATHANG" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__DONDATHAN__MAKHA__300424B4" FromRole="DONDATHANG" ToRole="KHACHHANG" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__DONDATHAN__MANHA__30F848ED" FromRole="DONDATHANG" ToRole="NHANVIEN" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="MAKHACHHANG" />
+          </Key>
+          <Property Name="MAKHACHHANG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENKH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TENGIAODICH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIENTHOAI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DONDATHANGs" Relationship="Self.FK__DONDATHAN__MAKHA__300424B4" FromRole="KHACHHANG" ToRole="DONDATHANG" />
+        </EntityType>
+        <EntityType Name="LOAIHANG">
+          <Key>
+            <PropertyRef Name="MALOAIHANG" />
+          </Key>
+          <Property Name="MALOAIHANG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENLOAIHANG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MATHANGs" Relationship="Self.FK__MATHANG__MALOAIH__2D27B809" FromRole="LOAIHANG" ToRole="MATHANG" />
+        </EntityType>
+        <EntityType Name="MATHANG">
+          <Key>
+            <PropertyRef Name="MAHANG" />
+          </Key>
+          <Property Name="MAHANG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENHANG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MACONGTY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MALOAIHANG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SOLUONG" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DONVITINH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GIAHANG" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="CHITIETDATHANGs" Relationship="Self.FK__CHITIETDA__MAHAN__34C8D9D1" FromRole="MATHANG" ToRole="CHITIETDATHANG" />
+          <NavigationProperty Name="LOAIHANG" Relationship="Self.FK__MATHANG__MALOAIH__2D27B809" FromRole="MATHANG" ToRole="LOAIHANG" />
+          <NavigationProperty Name="NHACUNGCAP" Relationship="Self.FK__MATHANG__MACONGT__2C3393D0" FromRole="MATHANG" ToRole="NHACUNGCAP" />
+        </EntityType>
+        <EntityType Name="NHACUNGCAP">
+          <Key>
+            <PropertyRef Name="MACONGTY" />
+          </Key>
+          <Property Name="MACONGTY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TENCONGTY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TENGIAODICH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DIENTHOAI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MATHANGs" Relationship="Self.FK__MATHANG__MACONGT__2C3393D0" FromRole="NHACUNGCAP" ToRole="MATHANG" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="MANHANVIEN" />
+          </Key>
+          <Property Name="MANHANVIEN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TEN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NGAYSINH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NGAYLAMVIEC" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DIENTHOAI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LUONGCOBAN" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PHUCAP" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="DONDATHANGs" Relationship="Self.FK__DONDATHAN__MANHA__30F848ED" FromRole="NHANVIEN" ToRole="DONDATHANG" />
+        </EntityType>
+        <Association Name="FK__CHITIETDA__MAHAN__34C8D9D1">
+          <End Role="MATHANG" Type="Self.MATHANG" Multiplicity="1" />
+          <End Role="CHITIETDATHANG" Type="Self.CHITIETDATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATHANG">
+              <PropertyRef Name="MAHANG" />
+            </Principal>
+            <Dependent Role="CHITIETDATHANG">
+              <PropertyRef Name="MAHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHITIETDA__SOHOA__33D4B598">
+          <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="1" />
+          <End Role="CHITIETDATHANG" Type="Self.CHITIETDATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONDATHANG">
+              <PropertyRef Name="SOHOADON" />
+            </Principal>
+            <Dependent Role="CHITIETDATHANG">
+              <PropertyRef Name="SOHOADON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONDATHAN__MAKHA__300424B4">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MAKHACHHANG" />
+            </Principal>
+            <Dependent Role="DONDATHANG">
+              <PropertyRef Name="MAKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONDATHAN__MANHA__30F848ED">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="DONDATHANG" Type="Self.DONDATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="MANHANVIEN" />
+            </Principal>
+            <Dependent Role="DONDATHANG">
+              <PropertyRef Name="MANHANVIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MATHANG__MALOAIH__2D27B809">
+          <End Role="LOAIHANG" Type="Self.LOAIHANG" Multiplicity="1" />
+          <End Role="MATHANG" Type="Self.MATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIHANG">
+              <PropertyRef Name="MALOAIHANG" />
+            </Principal>
+            <Dependent Role="MATHANG">
+              <PropertyRef Name="MALOAIHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MATHANG__MACONGT__2C3393D0">
+          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
+          <End Role="MATHANG" Type="Self.MATHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHACUNGCAP">
+              <PropertyRef Name="MACONGTY" />
+            </Principal>
+            <Dependent Role="MATHANG">
+              <PropertyRef Name="MACONGTY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QLHH_GRABEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CHITIETDATHANGs" EntityType="Self.CHITIETDATHANG" />
+          <EntitySet Name="DONDATHANGs" EntityType="Self.DONDATHANG" />
+          <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+          <EntitySet Name="LOAIHANGs" EntityType="Self.LOAIHANG" />
+          <EntitySet Name="MATHANGs" EntityType="Self.MATHANG" />
+          <EntitySet Name="NHACUNGCAPs" EntityType="Self.NHACUNGCAP" />
+          <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+          <AssociationSet Name="FK__CHITIETDA__MAHAN__34C8D9D1" Association="Self.FK__CHITIETDA__MAHAN__34C8D9D1">
+            <End Role="MATHANG" EntitySet="MATHANGs" />
+            <End Role="CHITIETDATHANG" EntitySet="CHITIETDATHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHITIETDA__SOHOA__33D4B598" Association="Self.FK__CHITIETDA__SOHOA__33D4B598">
+            <End Role="DONDATHANG" EntitySet="DONDATHANGs" />
+            <End Role="CHITIETDATHANG" EntitySet="CHITIETDATHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONDATHAN__MAKHA__300424B4" Association="Self.FK__DONDATHAN__MAKHA__300424B4">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="DONDATHANG" EntitySet="DONDATHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONDATHAN__MANHA__30F848ED" Association="Self.FK__DONDATHAN__MANHA__30F848ED">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="DONDATHANG" EntitySet="DONDATHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MATHANG__MALOAIH__2D27B809" Association="Self.FK__MATHANG__MALOAIH__2D27B809">
+            <End Role="LOAIHANG" EntitySet="LOAIHANGs" />
+            <End Role="MATHANG" EntitySet="MATHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MATHANG__MACONGT__2C3393D0" Association="Self.FK__MATHANG__MACONGT__2C3393D0">
+            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
+            <End Role="MATHANG" EntitySet="MATHANGs" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(QLHH_GRABModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(QLHH_GRABModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLHH_GRABModelStoreContainer" CdmEntityContainer="QLHH_GRABEntities">
+          <EntitySetMapping Name="CHITIETDATHANGs">
+            <EntityTypeMapping TypeName="QLHH_GRABModel.CHITIETDATHANG">
+              <MappingFragment StoreEntitySet="CHITIETDATHANG">
+                <ScalarProperty Name="SOHOADON" ColumnName="SOHOADON" />
+                <ScalarProperty Name="MAHANG" ColumnName="MAHANG" />
+                <ScalarProperty Name="GIABAN" ColumnName="GIABAN" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="MUCGIAMGIA" ColumnName="MUCGIAMGIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DONDATHANGs">
+            <EntityTypeMapping TypeName="QLHH_GRABModel.DONDATHANG">
+              <MappingFragment StoreEntitySet="DONDATHANG">
+                <ScalarProperty Name="SOHOADON" ColumnName="SOHOADON" />
+                <ScalarProperty Name="MAKHACHHANG" ColumnName="MAKHACHHANG" />
+                <ScalarProperty Name="MANHANVIEN" ColumnName="MANHANVIEN" />
+                <ScalarProperty Name="NGAYDATHANG" ColumnName="NGAYDATHANG" />
+                <ScalarProperty Name="NGAYGIAOHANG" ColumnName="NGAYGIAOHANG" />
+                <ScalarProperty Name="NGAYCHUYENHANG" ColumnName="NGAYCHUYENHANG" />
+                <ScalarProperty Name="NOIGIAOHANG" ColumnName="NOIGIAOHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANGs">
+            <EntityTypeMapping TypeName="QLHH_GRABModel.KHACHHANG">
+              <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="MAKHACHHANG" ColumnName="MAKHACHHANG" />
+                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+                <ScalarProperty Name="TENGIAODICH" ColumnName="TENGIAODICH" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAIHANGs">
+            <EntityTypeMapping TypeName="QLHH_GRABModel.LOAIHANG">
+              <MappingFragment StoreEntitySet="LOAIHANG">
+                <ScalarProperty Name="MALOAIHANG" ColumnName="MALOAIHANG" />
+                <ScalarProperty Name="TENLOAIHANG" ColumnName="TENLOAIHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MATHANGs">
+            <EntityTypeMapping TypeName="QLHH_GRABModel.MATHANG">
+              <MappingFragment StoreEntitySet="MATHANG">
+                <ScalarProperty Name="MAHANG" ColumnName="MAHANG" />
+                <ScalarProperty Name="TENHANG" ColumnName="TENHANG" />
+                <ScalarProperty Name="MACONGTY" ColumnName="MACONGTY" />
+                <ScalarProperty Name="MALOAIHANG" ColumnName="MALOAIHANG" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="DONVITINH" ColumnName="DONVITINH" />
+                <ScalarProperty Name="GIAHANG" ColumnName="GIAHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHACUNGCAPs">
+            <EntityTypeMapping TypeName="QLHH_GRABModel.NHACUNGCAP">
+              <MappingFragment StoreEntitySet="NHACUNGCAP">
+                <ScalarProperty Name="MACONGTY" ColumnName="MACONGTY" />
+                <ScalarProperty Name="TENCONGTY" ColumnName="TENCONGTY" />
+                <ScalarProperty Name="TENGIAODICH" ColumnName="TENGIAODICH" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHANVIENs">
+            <EntityTypeMapping TypeName="QLHH_GRABModel.NHANVIEN">
+              <MappingFragment StoreEntitySet="NHANVIEN">
+                <ScalarProperty Name="MANHANVIEN" ColumnName="MANHANVIEN" />
+                <ScalarProperty Name="HO" ColumnName="HO" />
+                <ScalarProperty Name="TEN" ColumnName="TEN" />
+                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+                <ScalarProperty Name="NGAYLAMVIEC" ColumnName="NGAYLAMVIEC" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+                <ScalarProperty Name="LUONGCOBAN" ColumnName="LUONGCOBAN" />
+                <ScalarProperty Name="PHUCAP" ColumnName="PHUCAP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QLHH_GRABModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QLHH_GRABModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QLHH_GRABModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="QLHH_GRABModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLHH_GRABModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="QLHH_GRABModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLHH_GRABModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QLHH_GRABModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QLHH_GRABModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

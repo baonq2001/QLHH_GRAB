@@ -1,0 +1,88 @@
+﻿@model QLHH_GRAB.Models.NHANVIEN
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>NHANVIEN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYSINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYSINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYLAMVIEC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYLAMVIEC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIENTHOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIENTHOAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LUONGCOBAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LUONGCOBAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PHUCAP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHUCAP)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,51 @@
+﻿@model QLHH_GRAB.Models.MATHANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<table border="1" cellpadding="0" cellspacing="0" style="font-size:14px;margin-left:50px;">
+    <tr>
+        <td>
+            <table cellpadding="2" cellspacing="10">
+                <caption><b>THÔNG TIN CHI TIẾT</b></caption>
+                <tr>
+                    <td rowspan="8">
+                    <td>Mã hàng:</td>
+                    <td>@Html.DisplayFor(model => model.MAHANG)</td>
+                </tr>
+                <tr>
+                    <td>Tên hàng:</td>
+                    <td>@Html.DisplayFor(model => model.TENHANG)</td>
+                </tr>
+                <tr>
+                    <td>Mã Loại hàng:</td>
+                    <td>@Html.DisplayFor(model => model.MALOAIHANG)</td>
+                </tr>
+        
+                <tr>
+                    <td>Giá hàng:</td>
+                    <td>@Html.DisplayFor(model => model.GIAHANG)</td>
+                </tr>
+                <tr>
+                    <td>Đơn vị tính:</td>
+                    <td>@Html.DisplayFor(model => model.DONVITINH)</td>
+                </tr>
+                <tr>
+                    <td>Số lượng:</td>
+                    <td>@Html.DisplayFor(model => model.SOLUONG)</td>
+                </tr>
+                <tr>
+                    <td>Tên công ty:</td>
+                    <td>@Html.DisplayFor(model => model.NHACUNGCAP.TENCONGTY)</td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
+<p style="margin-left:50px;">
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MAHANG }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

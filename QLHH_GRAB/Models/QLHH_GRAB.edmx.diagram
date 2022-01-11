@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eb35cae892154cfcbc1bf3e4f280db7f" Name="Diagram1">
+        <EntityTypeShape EntityType="QLHH_GRABModel.CHITIETDATHANG" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHH_GRABModel.DONDATHANG" Width="1.5" PointX="4.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHH_GRABModel.KHACHHANG" Width="1.5" PointX="1.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHH_GRABModel.LOAIHANG" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHH_GRABModel.MATHANG" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHH_GRABModel.NHACUNGCAP" Width="1.5" PointX="0.625" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHH_GRABModel.NHANVIEN" Width="1.5" PointX="1.375" PointY="11.25" IsExpanded="true" />
+        <AssociationConnector Association="QLHH_GRABModel.FK__CHITIETDA__MAHAN__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHH_GRABModel.FK__CHITIETDA__SOHOA__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHH_GRABModel.FK__DONDATHAN__MAKHA__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHH_GRABModel.FK__DONDATHAN__MANHA__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHH_GRABModel.FK__MATHANG__MALOAIH__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="QLHH_GRABModel.FK__MATHANG__MACONGT__2C3393D0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

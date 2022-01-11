@@ -1,0 +1,83 @@
+﻿@model IEnumerable<QLHH_GRAB.Models.NHANVIEN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TEN", rowsPerPage: 11);
+}
+<h2>DANH SÁCH NHÂN VIÊN</h2>
+@Html.ActionLink("Thêm mới", "Create")
+<head>
+    <style type="text/css">
+        .grid-footer {
+            color: #000;
+            font: 17px Calibri;
+            text-align: center;
+            font-weight: bold;
+        }
+
+            .grid-footer a {
+                background-color: #ffffff;
+                color: blue;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                padding: 1px 10px 2px 10px;
+            }
+
+                .grid-footer a:active, a:hover {
+                    background-color: #ffffff;
+                    color: #FFAD33;
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                }
+
+        .alternatingRowStyle {
+            background-color: aliceblue;
+        }
+
+        table .table1 {
+            text-align: left;
+            margin-left: 0px;
+            margin-right: 0px;
+            width: 800px;
+        }
+
+        .tr, .td {
+            text-align: left;
+        }
+    </style>
+</head>
+<div id="gridContent">
+    @ViewBag.TB
+    @grid.GetHtml(
+        tableStyle: "table table-bordered table-hover",
+        footerStyle: "grid-footer",
+        fillEmptyRows: true,
+        mode: WebGridPagerModes.All,
+        alternatingRowStyle: "alternatingRowStyle",
+          columns: new[]  // colums in grid
+         {
+     grid.Column("STT",format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex),
+    grid.Column("MANHANVIEN","Mã nhân viên"), //the model fields to display
+    grid.Column("HO","Họ" ),
+    grid.Column("TEN","Tên"),
+    grid.Column("NGAYSINH","Ngày sinh"),
+    grid.Column("NGAYLAMVIEC","Ngày làm việc"),
+    grid.Column("DIACHI","Địa chỉ"),
+grid.Column("DIENTHOAI","điện thoại"),
+grid.Column("LUONGCOBAN","Lương"),
+grid.Column("PHUCAP","Phụ Cấp"),
+grid.Column("Chức năng", format: @<text>
+    <a href="@Url.Action("Edit",
+                        new { id = item.MANHANVIEN.ToString().Trim()})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" width="20" height="20" /></abbr></a>
+    <a href="@Url.Action("Details",
+                        new { id = item.MANHANVIEN.ToString().Trim()})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a>
+    <a href="@Url.Action("Delete",
+                        new { id = item.MANHANVIEN.ToString().Trim()})" class="edit-btn">
+        <abbr title="Xóa dữ liệu">
+            <img src="/images/delete.png" width="20" height="20" />
+        </abbr>
+    </a>
+</text>),
+
+}
+)
+</div>

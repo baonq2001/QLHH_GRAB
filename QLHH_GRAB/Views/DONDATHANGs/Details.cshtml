@@ -1,0 +1,66 @@
+﻿@model QLHH_GRAB.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DONDATHANG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYDATHANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDATHANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYGIAOHANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYGIAOHANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYCHUYENHANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYCHUYENHANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIGIAOHANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIGIAOHANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACHHANG.TENKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.TENKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHANVIEN.HO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHANVIEN.HO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SOHOADON }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

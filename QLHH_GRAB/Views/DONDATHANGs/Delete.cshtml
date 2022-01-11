@@ -1,0 +1,72 @@
+﻿@model QLHH_GRAB.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DONDATHANG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYDATHANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDATHANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYGIAOHANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYGIAOHANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYCHUYENHANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYCHUYENHANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIGIAOHANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIGIAOHANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACHHANG.TENKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.TENKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHANVIEN.HO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHANVIEN.HO)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

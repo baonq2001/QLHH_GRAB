@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLHH_GRABModelStoreContainer" CdmEntityContainer="QLHH_GRABEntities">
+    <EntitySetMapping Name="CHITIETDATHANGs">
+      <EntityTypeMapping TypeName="QLHH_GRABModel.CHITIETDATHANG">
+        <MappingFragment StoreEntitySet="CHITIETDATHANG">
+          <ScalarProperty Name="SOHOADON" ColumnName="SOHOADON" />
+          <ScalarProperty Name="MAHANG" ColumnName="MAHANG" />
+          <ScalarProperty Name="GIABAN" ColumnName="GIABAN" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+          <ScalarProperty Name="MUCGIAMGIA" ColumnName="MUCGIAMGIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DONDATHANGs">
+      <EntityTypeMapping TypeName="QLHH_GRABModel.DONDATHANG">
+        <MappingFragment StoreEntitySet="DONDATHANG">
+          <ScalarProperty Name="SOHOADON" ColumnName="SOHOADON" />
+          <ScalarProperty Name="MAKHACHHANG" ColumnName="MAKHACHHANG" />
+          <ScalarProperty Name="MANHANVIEN" ColumnName="MANHANVIEN" />
+          <ScalarProperty Name="NGAYDATHANG" ColumnName="NGAYDATHANG" />
+          <ScalarProperty Name="NGAYGIAOHANG" ColumnName="NGAYGIAOHANG" />
+          <ScalarProperty Name="NGAYCHUYENHANG" ColumnName="NGAYCHUYENHANG" />
+          <ScalarProperty Name="NOIGIAOHANG" ColumnName="NOIGIAOHANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="QLHH_GRABModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="MAKHACHHANG" ColumnName="MAKHACHHANG" />
+          <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+          <ScalarProperty Name="TENGIAODICH" ColumnName="TENGIAODICH" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIHANGs">
+      <EntityTypeMapping TypeName="QLHH_GRABModel.LOAIHANG">
+        <MappingFragment StoreEntitySet="LOAIHANG">
+          <ScalarProperty Name="MALOAIHANG" ColumnName="MALOAIHANG" />
+          <ScalarProperty Name="TENLOAIHANG" ColumnName="TENLOAIHANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MATHANGs">
+      <EntityTypeMapping TypeName="QLHH_GRABModel.MATHANG">
+        <MappingFragment StoreEntitySet="MATHANG">
+          <ScalarProperty Name="MAHANG" ColumnName="MAHANG" />
+          <ScalarProperty Name="TENHANG" ColumnName="TENHANG" />
+          <ScalarProperty Name="MACONGTY" ColumnName="MACONGTY" />
+          <ScalarProperty Name="MALOAIHANG" ColumnName="MALOAIHANG" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+          <ScalarProperty Name="DONVITINH" ColumnName="DONVITINH" />
+          <ScalarProperty Name="GIAHANG" ColumnName="GIAHANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHACUNGCAPs">
+      <EntityTypeMapping TypeName="QLHH_GRABModel.NHACUNGCAP">
+        <MappingFragment StoreEntitySet="NHACUNGCAP">
+          <ScalarProperty Name="MACONGTY" ColumnName="MACONGTY" />
+          <ScalarProperty Name="TENCONGTY" ColumnName="TENCONGTY" />
+          <ScalarProperty Name="TENGIAODICH" ColumnName="TENGIAODICH" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="QLHH_GRABModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="MANHANVIEN" ColumnName="MANHANVIEN" />
+          <ScalarProperty Name="HO" ColumnName="HO" />
+          <ScalarProperty Name="TEN" ColumnName="TEN" />
+          <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+          <ScalarProperty Name="NGAYLAMVIEC" ColumnName="NGAYLAMVIEC" />
+          <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+          <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+          <ScalarProperty Name="LUONGCOBAN" ColumnName="LUONGCOBAN" />
+          <ScalarProperty Name="PHUCAP" ColumnName="PHUCAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QLHH_GRABModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QLHH_GRABModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QLHH_GRABModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="QLHH_GRABModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLHH_GRABModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="QLHH_GRABModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLHH_GRABModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QLHH_GRABModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QLHH_GRABModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>
