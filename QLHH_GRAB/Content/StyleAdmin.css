@@ -1,15 +1,4 @@
-﻿#banner {
-    height: 60px;
-    font-size: 22px;
-    color: blue;
-    text-align: center;
-    background-color: aqua;
-    width: 100%;
-    background-color: aqua; /*#222222;*/
-    border-color: #080808;
-    padding-top: 10px;
-}
-
+﻿
 #menu {
     float: left;
     width: 100%;
@@ -20,7 +9,7 @@
     height: 20px;
     padding-top: 5px;
     text-align: center;
-    background-color: aqua;
+    background-color: #228B22;
 }
 
 #content {
@@ -39,9 +28,9 @@
 
     .a:active,
     .a:hover {
-        background-color: #00F;
-        color: #FFF;
+        background-color: #228B22;
+        color: #228B22;
         font-weight: bold;
         text-decoration: none;
         cursor: pointer;
-}
+    }

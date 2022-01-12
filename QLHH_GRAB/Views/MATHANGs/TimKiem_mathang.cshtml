@@ -1,12 +1,19 @@
-﻿@model IEnumerable<QLHH_GRAB.Models.MATHANG>
-
+﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "TimKiem_mathang";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    var grid = new WebGrid(Model, canPage: true, defaultSort: "TENHANG", rowsPerPage: 8);
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TENHANG", rowsPerPage: 5);
 }
-<h2>DANH SÁCH MẶT HÀNG</h2>
-@Html.ActionLink("Thêm mới", "Create")
+
+Nhập mã mặt hàng cần tìm
+@using (Html.BeginForm())
+{
+    @Html.Editor("MAHANG")
+    <input type="submit" value="Tìm kiếm" />
+    <input type="button" name="Lamoi" value="Làm mới" style="margin-left: 5px;width:100px;
+                background-color: blue;color:white" onclick="location.href='@Url.Action("TimKiem_mathang", "MATHANGs")'" />
+    <h3>DANH SÁCH MẶT HÀNG</h3>
+}
 <head>
     <style type="text/css">
         .grid-footer {
@@ -64,18 +71,19 @@
 grid.Column("SOLUONG","Số lượng"),
 grid.Column("MACONGTY","Mã công ty"),
 grid.Column("Chức năng", format: @<text>
-        <a href="@Url.Action("Edit",
-                        new { id = item.MAHANG.ToString().Trim()})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" width="20" height="20" /></abbr></a>
-        <a href="@Url.Action("Details",
-                        new { id = item.MAHANG.ToString().Trim()})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a>
-        <a href="@Url.Action("Delete",
-                        new { id = item.MAHANG.ToString().Trim()})" class="edit-btn">
-            <abbr title="Xóa dữ liệu">
-                <img src="/images/delete.png" width="20" height="20" />
-            </abbr>
-        </a>
+    <a href="@Url.Action("Edit",
+                        new { id = item.MAHANG})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" width="20" height="20" /></abbr></a>
+    <a href="@Url.Action("Details",
+                        new { id = item.MAHANG})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a>
+    <a href="@Url.Action("Delete",
+new { id = item.MAHANG})" class="edit-btn">
+        <abbr title="Xóa dữ liệu">
+            <img src="/images/delete.png" width="20" height="20" />
+        </abbr>
+    </a>
 </text>),
 
 }
 )
 </div>
+

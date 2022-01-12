@@ -46,23 +46,25 @@
                     margin-top: 16px;
                 }
             </style>
-            
-            <div id="banner" style="top:0px;position:absolute;">HỆ THỐNG QUẢN LÝ THÔNG TIN HÀNG HÓA</div>
+           
 
-            <div id="menu" style="margin-top:10px;">
+            <div id="menu" style="margin-top:0px;">
                 <div>
                     <img src="~/Images/grab-logo.png" width="100" height="100" alt="Academi"></a>
+
                     @Html.ActionLink("TRANG CHỦ", "../MATHANGs/TrangChu", new { @class = "a" }) &nbsp;|&nbsp;
                     @Html.ActionLink("HÀNG HÓA", "../MATHANGs/Index", new { @class = "a" }) &nbsp;|&nbsp;
-                    @Html.ActionLink("NHÂN VIÊN", "../MATHANGs/Index", new { @class = "a" })&nbsp;|&nbsp;
-                    @Html.ActionLink("TÌM KIẾM", "../MATHANGs/TimKiem", new { @class = "a" })&nbsp;|&nbsp;
-                    @Html.ActionLink("HÓA ĐƠN", "../DONDATHANGSs/HoaDon", new { @class = "a" })&nbsp;|&nbsp;
+                    @Html.ActionLink("NHÂN VIÊN", "../NHANVIENs/Index", new { @class = "a" })&nbsp;|&nbsp;
+                    @Html.ActionLink("KHÁCH HÀNG", "../KHACHHANGs/Index", new { @class = "a" })&nbsp;|&nbsp;
+                    @Html.ActionLink("TÌM KIẾM", "../MATHANGs/TimKiem_mathang", new { @class = "a" })&nbsp;|&nbsp;
+                    @Html.ActionLink("HÓA ĐƠN", "../DONDATHANGs/Index", new { @class = "a" })&nbsp;|&nbsp;
+                    @Html.ActionLink("ĐĂNG NHẬP", "../DANGNHAP/Login", new { @class = "a" })&nbsp;|&nbsp;
                     <hr style="display: block;border-top: 1px solid aqua;  margin: 8px 0;" />
                 </div>
-                <div>
-                    <p align="right">  @ViewBag.NguoiDung</p>
+                    <div>
+                        <p align="right">  @ViewBag.NguoiDung</p>
+                    </div>
                 </div>
-            </div>
             <div id="content">
                 @RenderBody()
             </div>
@@ -79,16 +81,12 @@
                                             <img src="~/Images/grab-logo.png" width="100" height="100" alt="Academi"></a>
                                         </div>
 
-                                        <p id="yui_3_17_2_1_1641874388641_21">
-                                            Grab Việt Nam
-                                            Forward Together
-                                            Công ty TNHH Grab
-                                            Địa chỉ: Tòa nhà Mapletree Business Center, Số 1060 Đại lộ Nguyễn Văn Linh,
-                                            Phường Tân Phong, Quận 7, Thành phố Hồ Chí Minh, Việt Nam
-                                            Mã số doanh nghiệp: 0312650437 cấp bởi Sở Kế hoạch và
-                                            Đầu tư TP. Hồ Chí Minh ngày 14/02/2014
-                                            Đại diện pháp lý: Nguyễn Thái Hải Vân
-                                            Chức vụ: Giám Đốc Điều Hành<br>
+                                        <p>
+                                            Công ty TNHH Grab<br>
+                                            Địa chỉ: Tòa nhà Mapletree Business Center, Số 1060 Đại lộ Nguyễn Văn Linh, Phường Tân Phong, Quận 7, Thành phố Hồ Chí Minh, Việt Nam<br>
+                                            Mã số doanh nghiệp: 0312650437 cấp bởi Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh ngày 14/02/2014<br>
+                                            Đại diện pháp lý: Nguyễn Thái Hải Vân<br>
+                                            Chức vụ: Giám Đốc Điều Hành
                                         </p>
                                     </div>
                                 </div>
@@ -107,28 +105,26 @@
                                         <h2 class="nopadding">Contact us</h2>
 
                                         <p>
-                                            Tòa nhà Mapletree Business Center, Số 1060 Đại lộ Nguyễn Văn Linh,
-                                            Phường Tân Phong, Quận 7, Thành phố Hồ Chí Minh, Việt Nam<br>
-                                            <i class="fa fa-phone-square"></i> Phone : 0312650437<br>
-                                            <i class="fa fa-envelope"></i> E-mail : <a class="mail-link" href="https://www.grab.com/vn/express/">GRAB@gmail.com</a><br>
+                                            <li>
+                                                <span class="glyphicon glyphicon-home"></span>
+                                                Tòa nhà: Mapletree Business Center, Số 1060 Đại lộ Nguyễn Văn Linh,
+                                                Phường Tân Phong, Quận 7, Thành phố Hồ Chí Minh, Việt Nam
+                                            </li>
+                                            <li>
+                                                <span class="glyphicon glyphicon-earphone"></span> Phone : 0312650437
+                                            </li>
+                                            <li>
+                                                <span class="glyphicon glyphicon-envelope"></span> E-mail : <a class="mail-link" href="https://www.grab.com/vn/express/">GRAB@gmail.com</a>
+                                            </li>
                                         </p>
 
-                                    </div>
-                                    <div class="social-media">
-                                        <h6>Follow us</h6>
-                                        <ul>
-                                            <li class="smedia-01"><a href="https://www.facebook.com/https://www.facebook.com/GrabVN/"><i class="fa fa-facebook-square"></i></a></li>
-                                            <li class="smedia-02"><a href="https://www.pinterest.com"><i class="fa fa-pinterest-square"></i></a></li>
-                                            <li class="smedia-03"><a href="https://www.twitter.com"><i class="fa fa-twitter-square"></i></a></li>
-                                            <li class="smedia-04"><a href="https://www.google.com"><i class="fa fa-google-plus-square"></i></a></li>
-                                        </ul>
-                                    </div>
+                                    </div>                                                            
+                                </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </footer>
 
 </body>

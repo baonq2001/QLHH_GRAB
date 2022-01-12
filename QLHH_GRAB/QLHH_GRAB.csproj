@@ -131,6 +131,7 @@
     <Compile Include="Controllers\DANGNHAPController.cs" />
     <Compile Include="Controllers\DONDATHANGsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KHACHHANGsController.cs" />
     <Compile Include="Controllers\MATHANGsController.cs" />
     <Compile Include="Controllers\NHANVIENsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -172,10 +173,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLHH_GRAB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\QUANTRI.cs">
+      <DependentUpon>QLHH_GRAB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>QLHH_GRAB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>QLHH_GRAB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>QLHH_GRAB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAIKHOAN.cs">
       <DependentUpon>QLHH_GRAB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -252,6 +262,13 @@
     <Content Include="Views\DONDATHANGs\Edit.cshtml" />
     <Content Include="Views\DONDATHANGs\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutPartial.cshtml" />
+    <Content Include="Views\MATHANGs\TimKiem_mathang.cshtml" />
+    <Content Include="Views\MATHANGs\TrangChu.cshtml" />
+    <Content Include="Views\KHACHHANGs\Create.cshtml" />
+    <Content Include="Views\KHACHHANGs\Delete.cshtml" />
+    <Content Include="Views\KHACHHANGs\Details.cshtml" />
+    <Content Include="Views\KHACHHANGs\Edit.cshtml" />
+    <Content Include="Views\KHACHHANGs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

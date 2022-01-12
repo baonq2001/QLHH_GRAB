@@ -18,6 +18,10 @@
         <AssociationConnector Association="QLHH_GRABModel.FK__DONDATHAN__MANHA__30F848ED" ManuallyRouted="false" />
         <AssociationConnector Association="QLHH_GRABModel.FK__MATHANG__MALOAIH__2D27B809" ManuallyRouted="false" />
         <AssociationConnector Association="QLHH_GRABModel.FK__MATHANG__MACONGT__2C3393D0" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLHH_GRABModel.QUANTRI" Width="1.5" PointX="7.5" PointY="0.75" />
+        <EntityTypeShape EntityType="QLHH_GRABModel.sysdiagram" Width="1.5" PointX="7.5" PointY="3.75" />
+        <EntityTypeShape EntityType="QLHH_GRABModel.TAIKHOAN" Width="1.5" PointX="3.75" PointY="12" />
+        <AssociationConnector Association="QLHH_GRABModel.FK_TAIKHOAN_NHANVIEN" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -2,81 +2,54 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Thông Tin Nhân Viên</h2>
+<table border="1" cellpadding="0" cellspacing="0" style="font-size:18px;margin-left:50px;">
+    <tr>
+        <td>
+            <table cellpadding="2" cellspacing="10">
+                <caption><b>THÔNG TIN CHI TIẾT</b></caption>
+                <tr>
+                    <td rowspan="8">
+                    <td>Họ: </td>
+                    <td>@Html.DisplayFor(model => model.HO)</td>
+                </tr>
+                <tr>
+                    <td>Tên: </td>
+                    <td>@Html.DisplayFor(model => model.TEN)</td>
+                </tr>
+                <tr>
+                    <td>Ngày sinh: </td>
+                    <td>@Html.DisplayFor(model => model.NGAYSINH)</td>
+                </tr>
 
-<div>
-    <h4>NHANVIEN</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.HO)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HO)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TEN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TEN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NGAYSINH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NGAYSINH)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NGAYLAMVIEC)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NGAYLAMVIEC)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DIACHI)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DIACHI)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DIENTHOAI)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DIENTHOAI)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LUONGCOBAN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LUONGCOBAN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PHUCAP)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PHUCAP)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MANHANVIEN }) |
-    @Html.ActionLink("Back to List", "Index")
+                <tr>
+                    <td>Ngày làm việc: </td>
+                    <td>@Html.DisplayFor(model => model.NGAYLAMVIEC)</td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ: </td>
+                    <td>@Html.DisplayFor(model => model.DIACHI)</td>
+                </tr>
+                <tr>
+                    <td>Điện thoại: </td>
+                    <td>@Html.DisplayFor(model => model.DIENTHOAI)</td>
+                </tr>
+                <tr>
+                    <td>Lương cơ bản: </td>
+                    <td>@Html.DisplayFor(model => model.LUONGCOBAN)</td>
+                </tr>
+                <tr>
+                    <td>Phụ cấp: </td>
+                    <td>@Html.DisplayFor(model => model.PHUCAP)</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<p style="margin-left:50px;">
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.HO }) |
+    @Html.ActionLink("Quay lại", "Index")
 </p>

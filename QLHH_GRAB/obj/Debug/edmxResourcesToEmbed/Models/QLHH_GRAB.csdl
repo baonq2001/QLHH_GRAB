@@ -89,6 +89,8 @@
     <Property Name="LUONGCOBAN" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="PHUCAP" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <NavigationProperty Name="DONDATHANGs" Relationship="Self.FK__DONDATHAN__MANHA__30F848ED" FromRole="NHANVIEN" ToRole="DONDATHANG" />
+    <Property Name="MATKHAU" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="TAIKHOANs" Relationship="QLHH_GRABModel.FK_TAIKHOAN_NHANVIEN" FromRole="NHANVIEN" ToRole="TAIKHOAN" />
   </EntityType>
   <Association Name="FK__CHITIETDA__MAHAN__34C8D9D1">
     <End Role="MATHANG" Type="Self.MATHANG" Multiplicity="1" />
@@ -224,6 +226,13 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="QUANTRIs" EntityType="QLHH_GRABModel.QUANTRI" />
+    <EntitySet Name="sysdiagrams" EntityType="QLHH_GRABModel.sysdiagram" />
+    <EntitySet Name="TAIKHOANs" EntityType="QLHH_GRABModel.TAIKHOAN" />
+    <AssociationSet Name="FK_TAIKHOAN_NHANVIEN" Association="QLHH_GRABModel.FK_TAIKHOAN_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -236,4 +245,44 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="QUANTRI">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Admin" Type="Boolean" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="TENTAIKHOAN" />
+    </Key>
+    <Property Name="TENTAIKHOAN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MATKHAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MANHANVIEN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QLHH_GRABModel.FK_TAIKHOAN_NHANVIEN" FromRole="TAIKHOAN" ToRole="NHANVIEN" />
+  </EntityType>
+  <Association Name="FK_TAIKHOAN_NHANVIEN">
+    <End Type="QLHH_GRABModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1" />
+    <End Type="QLHH_GRABModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANHANVIEN" />
+      </Principal>
+      <Dependent Role="TAIKHOAN">
+        <PropertyRef Name="MANHANVIEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

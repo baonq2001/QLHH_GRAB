@@ -20,7 +20,21 @@ namespace QLHH_GRAB.Controllers
             var mATHANGs = db.MATHANGs.Include(m => m.LOAIHANG).Include(m => m.NHACUNGCAP);
             return View(mATHANGs.ToList());
         }
-
+        public ActionResult TimKiem_mathang()
+        {
+            var mATHANGs = db.MATHANGs.Include(s => s.LOAIHANG);
+            return View(mATHANGs.ToList());
+        }
+        [HttpPost]
+        public ActionResult TimKiem_mathang(string maLoaiHang)
+        {
+            var mATHANGs = db.MATHANGs.Where(abc => abc.MAHANG == maLoaiHang);
+            return View(mATHANGs.ToList());
+        }
+        public ActionResult TrangChu()
+        {
+            return View();
+        }
         // GET: MATHANGs/Details/5
         public ActionResult Details(string id)
         {

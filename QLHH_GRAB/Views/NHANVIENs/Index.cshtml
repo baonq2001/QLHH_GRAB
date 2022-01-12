@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    var grid = new WebGrid(Model, canPage: true, defaultSort: "TEN", rowsPerPage: 11);
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "TEN", rowsPerPage: 8);
 }
 <h2>DANH SÁCH NHÂN VIÊN</h2>
 @Html.ActionLink("Thêm mới", "Create")
@@ -59,9 +59,9 @@
     grid.Column("MANHANVIEN","Mã nhân viên"), //the model fields to display
     grid.Column("HO","Họ" ),
     grid.Column("TEN","Tên"),
-    grid.Column("NGAYSINH","Ngày sinh"),
-    grid.Column("NGAYLAMVIEC","Ngày làm việc"),
-    grid.Column("DIACHI","Địa chỉ"),
+    grid.Column("NGAYSINH","Ngày sinh",format:@<text> @item.NGAYSINH.ToString("dd/MM/yyyy")</text>),
+grid.Column("NGAYLAMVIEC","Ngày làm việc",format:@<text> @item.NGAYLAMVIEC.ToString("dd/MM/yyyy")</text>),
+grid.Column("DIACHI","Địa chỉ"),
 grid.Column("DIENTHOAI","điện thoại"),
 grid.Column("LUONGCOBAN","Lương"),
 grid.Column("PHUCAP","Phụ Cấp"),

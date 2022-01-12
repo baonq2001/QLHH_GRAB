@@ -1,10 +1,13 @@
-﻿@model QLHH_GRAB.Models.MATHANG
+﻿@model QLHH_GRAB.Models.KHACHHANG
 
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h2>Xóa Hàng Hóa</h2>
+
+<h2>Xóa Khách Hàng</h2>
+
+<h3>Are you sure you want to delete this?</h3>
 <h4 style="color:red;"> Bạn có chắc chắn xóa thông tin này?</h4>
 <table border="0" cellpadding="0" cellspacing="0" style="font-size:14px;margin-left:50px;">
     <tr>
@@ -13,34 +16,31 @@
                 <caption><b>THÔNG TIN CHI TIẾT</b></caption>
                 <tr>
                     <td rowspan="8"></td>
-                    <td>Mã hàng:</td>
-                    <td>@Html.DisplayFor(model => model.MAHANG)</td>
+                    <td>Mã khách hàng:</td>
+                    <td>@Html.DisplayFor(model => model.MAKHACHHANG)</td>
                 </tr>
                 <tr>
-                    <td>Tên hàng:</td>
-                    <td>@Html.DisplayFor(model => model.TENHANG)</td>
+                    <td>Tên khách hàng:</td>
+                    <td>@Html.DisplayFor(model => model.TENKH)</td>
                 </tr>
                 <tr>
-                    <td>Mã loại hàng:</td>
-                    <td>@Html.DisplayFor(model => model.MALOAIHANG)</td>
+                    <td>Tên giao dịch:</td>
+                    <td>@Html.DisplayFor(model => model.TENGIAODICH)</td>
                 </tr>
                 <tr>
-                    <td>Giá hàng:</td>
-                    <td>@Html.DisplayFor(model => model.GIAHANG)</td>
+                    <td>Địa chỉ:</td>
+                    <td>@Html.DisplayFor(model => model.DIACHI)</td>
                 </tr>
                 <tr>
-                    <td>Đơn vị tính:</td>
-                    <td>@Html.DisplayFor(model => model.DONVITINH)</td>
-                </tr>
-                <tr>
-                    <td>Số lượng:</td>
-                    <td>@Html.DisplayFor(model => model.SOLUONG)</td>
-                </tr>
-                <tr>
-                    <td>Mã công ty:</td>
-                    <td>@Html.DisplayFor(model => model.MACONGTY)</td>
+                    <td>Email:</td>
+                    <td>@Html.DisplayFor(model => model.EMAIL)</td>
                 </tr>
                
+                <tr>
+                    <td>Điện thoại:</td>
+                    <td>@Html.DisplayFor(model => model.DIENTHOAI)</td>
+                </tr>
+
             </table>
         </td>
     </tr>
